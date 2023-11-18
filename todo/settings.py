@@ -27,14 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+USER_CREATE_PASSWORD_RETYPE = False
 # Application definition
 
-MYAPPS = [
-    'todo_app',
-    'rest_framework',
-    'django_filters'
-]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,11 +40,27 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
-INSTALLED_APPS += MYAPPS
+MYAPPS = [
+    'todo_app',
+]
+
+INSTALLED_PAKAGES_APPS = [
+    'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
+    'corsheaders',
+]
+
+INSTALLED_APPS = INSTALLED_APPS + MYAPPS + INSTALLED_PAKAGES_APPS
+
+CORS_ALLOWED_ORIGINS = [
+    "http://:localhost:3000",
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMidleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

@@ -31,7 +31,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 MYAPPS = [
-    'todo_app'
+    'todo_app',
+    'rest_framework',
+    'django_filters'
 ]
 
 INSTALLED_APPS = [

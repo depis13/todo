@@ -11,6 +11,9 @@
    - `pip3 install -r requirements.txt`
    - `pip install -r requirements.txt`
 
+3. migrate
+    - `python manage.py migrate`
+
 3. Install js dependencies
     - `npm install`
 

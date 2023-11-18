@@ -1,0 +1,1 @@
+[-] fix navbar icon and navbar in mobile version

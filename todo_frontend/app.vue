@@ -26,3 +26,18 @@
     ]
   })
 </script>
+
+
+<style>
+.putple-btn {
+    --bs-btn-font-size: 1.5rem;
+    background: rgb(101, 101, 194);
+    --bs-btn-color: rgb(85, 85, 189);
+}
+.putple-btn:hover {
+    background-color: rgb(85, 85, 189);
+}
+.putple-btn:active {
+    --bs-btn-color: rgb(85, 85, 189);
+}
+</style>

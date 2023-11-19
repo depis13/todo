@@ -8,26 +8,44 @@ let errors = ref([])
 async function submitForm() {
     console.log('submitForm')
     errors.value = []
-    await $fetch('http://127.0.0.1:8000/api/v1/users', {
+    await $fetch('http://127.0.0.1:8000/api/v1/users/', {
         method: 'POST',
         body: {
             username: email.value,
-            password1: password1.value
+            password: password1.value
         }
     }).then(response => {
         console.log('response', response)
         router.push({path: '/login'})
     }).catch(error => {
+        console.log(`test`, error)
+        // console.log(response)
         if (error.response) {
             for (const property in error.response._data) {
                 errors.value.push(`${property}: ${error.response._data[property]}`)
             }
             console.log(JSON.stringify(error.response))
-        } else if (error.message) {
+            if (error.password) {
+                errors.push(error.password)
+            }
+            if (error.username) {
+                errors.push(error.username)
+            }
+            // if (response._data.username){
+            //     errors.push(response._data.username)
+            // }
+            // if (response._data.password){
+            //     error.push(response._data.password)
+            // }
+        } else {
             errors.value.push('Something went wrong')
-            console.log(JSON.stringify(error))
+            // console.log(JSON.stringify(error))
         }
+        // else {
+        //     console.log(error.username)
+        // }
     })
+    console.log(JSON.stringify(errors))
 }
 </script>
 
@@ -49,8 +67,11 @@ async function submitForm() {
                 <input v-model="password2" type="password" class="form-control" id="inputPassword4">
             </div>
             <div v-if="errors.length" class="col-12 error-block">
-                <div v-for="error in errors" v-bind:key="error">
-                    {{ error }}
+                <div v-if="errors" class="alert alert-danger">
+                    {{ errors[0] }}
+                </div>
+                <div v-else class="alert alert-danger" role="alert">
+                    Something went wrong. Please try again.
                 </div>
             </div>
             <div class="col-12">

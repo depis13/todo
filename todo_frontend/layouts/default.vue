@@ -1,5 +1,7 @@
 <script setup>
+
 import {useUserStore} from '@/stores/user.js'
+
 const userStore = useUserStore()
 </script>
 
@@ -21,7 +23,7 @@ const userStore = useUserStore()
       <div class="d-flex gap-2">
 
           <template v-if="userStore.user.isAuthenticated">
-              <div>afs</div>
+            <NuxtLink to="/profile" class="btn btn-hover" data-bs-toggle="button">{{userStore.user.email}}</NuxtLink>
           </template>
           <template v-else>
             <NuxtLink to="/login" class="btn btn-hover" data-bs-toggle="button">Log in</NuxtLink>
@@ -32,7 +34,13 @@ const userStore = useUserStore()
       </div>
     </div>
     </nav>
+    <!-- <template v-if="userStore.user.isAuthenticated">
+
+    </template>
+    <template v-else>
+    </template> -->
     <slot />
+
   </div>
 </template>
 

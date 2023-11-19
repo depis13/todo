@@ -19,7 +19,7 @@ async function submitForm() {
         console.log('data', data)
         console.log('token', data.token)
         userStore.setToken(data.token, email.value)
-        router.push({path: '/'})
+        router.push({path: '/organisations'})
     }).catch(error => {
         if (error.response) {
             for (const property in error.response._data) {

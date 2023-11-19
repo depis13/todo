@@ -64,13 +64,12 @@
   <div class="d-flex gap-2" style="margin-right: 40px;">
 
       <template v-if="userStore.user.isAuthenticated">
-        <!-- <NuxtLink to="/profile" class="btn btn-hover" data-bs-toggle="button">{{userStore.user.email}}</NuxtLink> -->
         <li class="nav-item dropdown list-unstyled">
           <a class="nav-link dropdown-toggle btn-hover btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{userStore.user.email}}
           </a>
           <ul class="dropdown-menu">
-            <li><NuxtLink class="dropdown-item btn btn-hover" to="/organisations">Profile</NuxtLink></li>
+            <li><NuxtLink class="dropdown-item btn btn-hover" to="/profile">Profile</NuxtLink></li>
             <li><hr class="dropdown-divider"></li>
             <li><NuxtLink class="dropdown-item btn btn-hover" to="/organisations/create">Create organisation</NuxtLink></li>
             <li><NuxtLink class="dropdown-item btn btn-hover" to="/organisations/change">Your organisations</NuxtLink></li>

@@ -12,16 +12,18 @@ export const useUserStore = defineStore({
     actions: {
         initStore() {
             console.log('initStore')
-            this.User.isAuthenticated = false
+            this.user.isAuthenticated = false
             if (localStorage.getItem('user.token')) {
+                console.log(localStorage)
                 this.user.token = localStorage.getItem('user.token')
                 this.user.email = localStorage.getItem('user.email')
+                console.log(this.user.email)
                 this.user.isAuthenticated = true
                 console.log('init user', this.user)
             }
         },
         setToken(token, email) {
-            console.log('setToken')
+            console.log('setToken', email)
             this.user.token = token
             this.user.email = email
             this.user.isAuthenticated = true

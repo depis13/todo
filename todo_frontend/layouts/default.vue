@@ -1,7 +1,7 @@
 <template>
   <div>
     <CustomNavBar />
-    <NuxtPage />
+    <NuxtPage/>
 
   </div>
 </template>

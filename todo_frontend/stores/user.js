@@ -11,6 +11,7 @@ export const useUserStore = defineStore({
     }),
     actions: {
         initStore() {
+            console.log('initStore')
             this.User.isAuthenticated = false
             if (localStorage.getItem('user.token')) {
                 this.user.token = localStorage.getItem('user.token')
@@ -20,14 +21,17 @@ export const useUserStore = defineStore({
             }
         },
         setToken(token, email) {
+            console.log('setToken')
             this.user.token = token
             this.user.email = email
             this.user.isAuthenticated = true
             localStorage.setItem('user.token', token)
             localStorage.setItem('user.email', email)
+            localStorage.setItem('user.email', true)
             console.log('seted token', token, email)
         },
         removeToken() {
+            console.log('removeToken')
             this.user.token = null
             this.user.email = null
             this.user.isAuthenticated = false

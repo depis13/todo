@@ -16,8 +16,9 @@ async function submitForm() {
             password: password.value
         }
     }).then(data => {
-        console.log('token', data.auth_token)
-        userStore.setToken(data.auth_token, email.value)
+        console.log('data', data)
+        console.log('token', data.token)
+        userStore.setToken(data.token, email.value)
         router.push({path: '/'})
     }).catch(error => {
         if (error.response) {

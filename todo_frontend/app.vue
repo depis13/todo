@@ -1,12 +1,7 @@
-<template>
-  <div>
-    <NuxtLayout >
-      
-    </NuxtLayout>
-  </div>
-</template>
-
 <script setup>
+  import { onMounted } from 'vue'
+  import { useUserStore } from '@/stores/user'
+
   useHead({
     title: "MyTaskTracker",
     link: [
@@ -25,7 +20,20 @@
       }
     ]
   })
+  const userStore = useUserStore()
+  onMounted(() => {
+    userStore.initStore()
+  })
 </script>
+
+
+<template>
+  <div>
+    <NuxtLayout >
+
+    </NuxtLayout>
+  </div>
+</template>
 
 
 <style>

@@ -1,31 +1,37 @@
-<script>
-
+<script setup>
+import {useUserStore} from '@/stores/user.js'
+const userStore = useUserStore()
 </script>
 
 <template>
   <div>
-    <p>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 
-      <div class="navbar-container vh-10 container-fluid gap-2">
-        <NuxtLink to="/" class="btn btn-hover main-btn" data-bs-toggle="button" style="--bs-btn-font-size: 1.4rem;">TaskTracker</NuxtLink>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon" style="--bs-navbar-active-color: #b6c2cf; --bs-navbar-brand-color: #b6c2cf;"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <NuxtLink to="/features" class="btn btn-hover" data-bs-toggle="button">features</NuxtLink>
-            </li>
-          </ul>
-        <div class="d-flex gap-2">
+    <div class="navbar-container vh-10 container-fluid gap-2">
+      <NuxtLink to="/" class="btn btn-hover main-btn" data-bs-toggle="button" style="--bs-btn-font-size: 1.4rem;">TaskTracker</NuxtLink>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="--bs-navbar-active-color: #b6c2cf; --bs-navbar-brand-color: #b6c2cf;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+              <NuxtLink to="/features" class="btn btn-hover" data-bs-toggle="button">features</NuxtLink>
+          </li>
+        </ul>
+      <div class="d-flex gap-2">
+
+          <template v-if="userStore.user.isAuthenticated">
+              <div>afs</div>
+          </template>
+          <template v-else>
             <NuxtLink to="/login" class="btn btn-hover" data-bs-toggle="button">Log in</NuxtLink>
             <NuxtLink to="/signup" class="btn btn-hover" data-bs-toggle="button">Sign up</NuxtLink>
-        </div>
-        </div>
+          </template>
+
       </div>
-      </nav>
-    </p>
+      </div>
+    </div>
+    </nav>
     <slot />
   </div>
 </template>

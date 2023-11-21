@@ -1,6 +1,12 @@
-# todo
+# TaskTracker
 
-## fullstack django+nuxt tasktracker app
+ - django
+ - nuxt 3
+ - pinia
+ - bootstrap 5
+ - vite
+
+## Dev installation
 
 
 1. Create a virtual environment
@@ -14,8 +20,11 @@
 3. migrate
     - `python manage.py migrate`
 
-3. Install js dependencies
+4. run django server
+    - `python manage.py runserver 0.0.0.0:8000`
+
+5. Install js dependencies
     - `npm install`
 
-4. run server
-    - `python manage.py runserver 0.0.0.0:8000`
+6. Run nuxt server
+    - `npm run dev`

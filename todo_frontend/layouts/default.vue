@@ -2,7 +2,6 @@
   <div>
     <CustomNavBar />
     <NuxtPage/>
-
   </div>
 </template>
 

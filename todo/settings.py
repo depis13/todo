@@ -41,10 +41,8 @@ INSTALLED_APPS = [
 ]
 
 MYAPPS = [
-    'todo_app',
     'organisation',
     'tasks',
-    'user'
 ]
 
 INSTALLED_PAKAGES_APPS = [

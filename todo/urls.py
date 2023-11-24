@@ -25,5 +25,3 @@ urlpatterns = [
     path('auth/', include('rest_authtoken.urls')),
 
 ]
-
-print(urlpatterns)
